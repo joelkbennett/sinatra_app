@@ -1,4 +1,3 @@
-# Homepage (Root path)
 get '/' do
   erb :index
 end
@@ -28,5 +27,6 @@ end
 
 get '/messages/:id' do
   @message = Message.find params[:id]
+  @author_messages = Message.where(author: @message.author).order(created_at: :desc)
   erb :'messages/show'
 end

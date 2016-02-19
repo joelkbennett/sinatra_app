@@ -2,5 +2,14 @@
 <p><%= @message.content %></p>
 <p>Url: <%= @message.url %></p>
 <p>Created At: <%= @message.created_at %></p>
+
 <hr>
+
+<h3>Other Message From This Author</h3>
+<% if @author_messages %>
+  <% for msg in @author_messages %>
+    <p><%= msg.content %> - <%= msg.created_at %></p>
+  <% end %>  
+<% end %>
+
 <a href="/messages">Back</a>
